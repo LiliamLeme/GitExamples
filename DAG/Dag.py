@@ -13,7 +13,7 @@ from airflow.providers.microsoft.azure.operators.data_factory import AzureDataFa
 
 with DAG(
     dag_id="example_adf_run_pipeline",
-    start_date=datetime(2024, 1, 25),
+    start_date=datetime(2024, 1, 23),
     schedule_interval="@daily",
     catchup=False,
     default_args={
