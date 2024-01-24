@@ -42,7 +42,19 @@ with DAG(
     ) 
 
 
-run_adf_pipeline 
+run_adf_pipeline
+
+  from tests.system.utils.watcher import watcher
+
+    # This test needs watcher in order to properly mark success/failure
+    # when "tearDown" task with trigger rule is part of the DAG
+    list(dag.tasks) >> watcher()
+
+from tests.system.utils import get_test_run  # noqa: E402
+
+# Needed to run the example DAG with pytest (see: tests/system/README.md#run_via_pytest)
+test_run = get_test_run(dag)
+
     # [END howto_operator_adf_run_pipeline]
 
     # [START howto_operator_adf_run_pipeline_async]
