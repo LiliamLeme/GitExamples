@@ -11,6 +11,9 @@ from airflow.providers.microsoft.azure.operators.data_factory import AzureDataFa
 #from airflow.providers.microsoft.azure.sensors.data_factory import AzureDataFactoryPipelineRunStatusSensor
 #from airflow.utils.edgemodifier import Label
 
+airflow scheduler
+
+
 with DAG(
     dag_id="example_adf_run_pipeline",
     start_date=datetime(2024, 1, 23),
