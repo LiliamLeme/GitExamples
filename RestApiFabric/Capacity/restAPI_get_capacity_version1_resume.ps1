@@ -1,14 +1,14 @@
 ﻿
-$subscriptionId = "78479cb4-e81a-4926-8c84-fa9c7784069b"
+$subscriptionId = ""
 $resourceGroupName = "SQL-HA-RG-Li"
-$dedicatedCapacityName = "lemefabric"
+$dedicatedCapacityName = ""
 $apiVersion = "2022-07-01-preview"
 
 
 # Define your Azure subscription, resource group, and other parameters
 $grant_type="client_credentials"
-$ClientId = "c52eafb7-7387-466e-ad41-98164a73256a"
-$ClientSecret = "rCH8Q~b2WipnAoFGt2k68RX7qNHWEWGB14UbucEP"
+$ClientId = ""
+$ClientSecret = ""
 
 
 # Construct the authentication URL
