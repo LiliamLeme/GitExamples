@@ -1,7 +1,7 @@
 ﻿# Define your Azure subscription, resource group, and other parameters
 $grant_type="client_credentials"
-$ClientId = "985134f5-4ec8-4d61-aa9d-6b0325e98ec9"
-$ClientSecret = "FP98Q~z.cp0c8ukLSC1oTdIF4jF21KTxZYc5taFY"
+$ClientId = ""
+$ClientSecret = "FP9"
 
 $RequestAccessTokenUri = "https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token"  # Check the Customer Token URL correctly and provide input entry
 
@@ -18,9 +18,9 @@ Connect-AZAccount -AccessToken $accessbearertoken -AccountId $ClientId
 #sql-ha-rg
 
 # Define your Azure subscription, resource group, and other parameters
-$subscriptionId = "1ca05c7d-712f-4bf6-bbae-866f523c7a7f"
+$subscriptionId = ""
 $resourceGroupName = "DefaultResourceGroup-EUS"
-$dedicatedCapacityName = "Trial-lilem-microsoft-com-05-18-2023-13-59-UTC"
+$dedicatedCapacityName = ""
 $apiVersion = "2022-07-01-preview"
 
 
@@ -35,8 +35,8 @@ $response = Invoke-RestMethod -Method GET -Uri $requestUrl -Headers @{Authorizat
 $response | ConvertTo-Json
 
 # Define your Azure subscription, resource group, and other parameters
-#$subscriptionId = "1ca05c7d-712f-4bf6-bbae-866f523c7a7f"
-#$dedicatedCapacityName = "Trial-lilem-microsoft-com-05-18-2023-13-59-UTC"
+#$subscriptionId = ""
+#$dedicatedCapacityName = ""
 #$apiVersion = "2022-07-01-preview"
 
 # List of resource group names to iterate through
