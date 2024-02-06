@@ -20,7 +20,7 @@ with DAG(
     default_args={
         "retries": 1,
         "retry_delay": timedelta(minutes=3),
-        "azure_data_factory_conn_id": "Generic", #This is a connection created on Airflow UI
+        "azure_data_factory_conn_id": "generic", #This is a connection created on Airflow UI
          "factory_name": "NextSynapse12",  # This can also be specified in the ADF connection.
         #"resource_group_name": "<ResourceGroupName>",  # This can also be specified in the ADF connection.
     },
