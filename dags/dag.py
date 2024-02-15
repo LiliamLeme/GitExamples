@@ -1,5 +1,6 @@
 from airflow.operators.python import PythonOperator
 from airflow.operators.generic_transfer import GenericTransfer
+from datetime import datetime, timedelta
 from airflow import DAG
 
 with  DAG(dag_id='Generic_Transfer_Operator', 
