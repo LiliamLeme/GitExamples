@@ -2,9 +2,9 @@ from airflow.operators.python import PythonOperator
 from airflow.operators.generic_transfer import GenericTransfer
 from airflow import DAG
 
-with  DAG(dag_id='Generic Transfer Operator', 
-        schedule_interval=None ,
-        start_date=datetime(2024,2,2) ,
+with  DAG(dag_id='Generic_Transfer_Operator', 
+        start_date=datetime(2024, 1, 23),
+        schedule_interval="@daily",
         catchup=False) as dag :
 
         load_upload_data=GenericTransfer(
