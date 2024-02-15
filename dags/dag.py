@@ -12,7 +12,7 @@ with  DAG(dag_id='Generic Transfer Operator',
                         sql="select * from datbricksOnelake.dbo.FactInternetSales_Consold",
                         destination_table ="dbo.FactInternetSales_Consold"  ,
                         source_conn_id="GenericLAkehouse"  ,
-                        destination_conn_id="GenericLAkehouse" 
+                        destination_conn_id="GenericLAkehouse" ,
                         dag=dag
 
                     )
