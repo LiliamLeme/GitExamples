@@ -25,7 +25,7 @@ def example_pyspark():
     """
 
     # [START task_pyspark]
-    @task.pyspark(conn_id="spark-local")
+    @task.pyspark(conn_id=GenericLAkehouse)
     def spark_task(spark: SparkSession, sc: SparkContext) -> pd.DataFrame:
         df = spark.createDataFrame(
             [
