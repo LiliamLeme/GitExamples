@@ -1,69 +1,59 @@
-from datetime import datetime, timedelta
+from __future__ import annotations
 
-from airflow.models import DAG
-from airflow.providers.microsoft.azure.operators.data_factory import AzureDataFactoryRunPipelineOperator
+import typing
 
-#try:
-#    from airflow.operators.empty import EmptyOperator
-#except ModuleNotFoundError:
-#    from airflow.operators.dummy import DummyOperator as EmptyOperator  # type: ignore
-#from airflow.providers.microsoft.azure.operators.data_factory import AzureDataFactoryRunPipelineOperator
-#from airflow.providers.microsoft.azure.sensors.data_factory import AzureDataFactoryPipelineRunStatusSensor
-#from airflow.utils.edgemodifier import Label
+import pendulum
+
+if typing.TYPE_CHECKING:
+    import pandas as pd
+    from pyspark import SparkContext
+    from pyspark.sql import SparkSession
+
+from airflow.decorators import dag, task
 
 
-with DAG(
-    dag_id="example_adf_run_pipeline",
-    start_date=datetime(2024, 1, 23),
-    schedule_interval="@daily",
+@dag(
+    schedule=None,
+    start_date=pendulum.datetime(2021, 1, 1, tz="UTC"),
     catchup=False,
-    default_args={
-        "retries": 1,
-        "retry_delay": timedelta(minutes=3),
-        "azure_data_factory_conn_id": "Azure_data_factory", #This is a connection created on Airflow UI
-        "factory_name": "NextSynapse12",  # This can also be specified in the ADF connection.
-        #"resource_group_name": "<ResourceGroupName>",  # This can also be specified in the ADF connection.
-    },
-    default_view="graph",
-) as dag:
-    #begin = EmptyOperator(task_id="begin")
-    #end = EmptyOperator(task_id="end")
+    tags=["example"],
+)
+def example_pyspark():
+    """
+    ### Example Pyspark DAG
+    This is an example DAG which uses pyspark
+    """
 
-    # [START howto_operator_adf_run_pipeline]
-    #run_pipeline1: BaseOperator = AzureDataFactoryRunPipelineOperator(
-    #    task_id="run_pipeline1",
-    #    pipeline_name="<PipelineName>", 
-    #    parameters={"myParam": "value"},
-    #)
+    # [START task_pyspark]
+    @task.pyspark(conn_id="spark-local")
+    def spark_task(spark: SparkSession, sc: SparkContext) -> pd.DataFrame:
+        df = spark.createDataFrame(
+            [
+                (1, "John Doe", 21),
+                (2, "Jane Doe", 22),
+                (3, "Joe Bloggs", 23),
+            ],
+            ["id", "name", "age"],
+        )
+        df.show()
 
-    run_adf_pipeline = AzureDataFactoryRunPipelineOperator( 
-        task_id="run_adf_pipeline", 
-        pipeline_name="pipeline_test_1",  
-        parameters={"justaparameter": "1"}, 
-    ) 
+        return df.toPandas()
+
+    # [END task_pyspark]
+
+    @task
+    def print_df(df: pd.DataFrame):
+        print(df)
+
+    df = spark_task()
+    print_df(df)
 
 
-run_adf_pipeline
+# work around pre-commit
+dag = example_pyspark()  # type: ignore
 
-    # [END howto_operator_adf_run_pipeline]
 
-    # [START howto_operator_adf_run_pipeline_async]
-    #run_pipeline2: BaseOperator = AzureDataFactoryRunPipelineOperator(
-    #    task_id="run_pipeline2",
-    #    pipeline_name="<PipelineName>",
-    #    wait_for_termination=False,
-    #)
+from tests.system.utils import get_test_run  # noqa: E402
 
-    #pipeline_run_sensor: BaseOperator = AzureDataFactoryPipelineRunStatusSensor(
-    #    task_id="pipeline_run_sensor",
-    #    run_id=run_pipeline2.output["run_id"],
-    #)
-    # [END howto_operator_adf_run_pipeline_async]
-
-    #begin >> Label("No async wait") >> run_pipeline1
-    #begin >> Label("Do async wait with sensor") >> run_pipeline2
-    #[run_pipeline1, pipeline_run_sensor] >> end
-  
-
-    # Task dependency created via `XComArgs`:
-    #   run_pipeline2 >> pipeline_run_sensor
+# Needed to run the example DAG with pytest (see: tests/system/README.md#run_via_pytest)
+test_run = get_test_run(dag)
