@@ -1,59 +1,20 @@
-from __future__ import annotations
+from airflow.operators.python import PythonOperator
+from airflow.operators.generic_transfer import GenericTransfer
+from airflow import DAG
 
-import typing
+with  DAG(dag_id='Generic Transfer Operator', 
+        schedule_interval=None ,
+        start_date=datetime(2023,2,2) ,
+        catchup=False) as dag :
 
-import pendulum
+        load_upload_data=GenericTransfer(
+                        task_id='load_upload_data' ,
+                        sql="select * from datbricksOnelake.FactInternetSales_Consold"
+                        destination_table ="datbricksOnelake.FactInternetSales_Consold"  ,
+                        source_conn_id="GenericLAkehouse"  ,
+                        destination_conn_id="GenericLAkehouse" 
+                        dag=dag
 
-if typing.TYPE_CHECKING:
-    import pandas as pd
-    from pyspark import SparkContext
-    from pyspark.sql import SparkSession
+                    )
 
-from airflow.decorators import dag, task
-
-
-@dag(
-    schedule=None,
-    start_date=pendulum.datetime(2021, 1, 1, tz="UTC"),
-    catchup=False,
-    tags=["example"],
-)
-def example_pyspark():
-    """
-    ### Example Pyspark DAG
-    This is an example DAG which uses pyspark
-    """
-
-    # [START task_pyspark]
-    @task.pyspark(conn_id=GenericLAkehouse)
-    def spark_task(spark: SparkSession, sc: SparkContext) -> pd.DataFrame:
-        df = spark.createDataFrame(
-            [
-                (1, "John Doe", 21),
-                (2, "Jane Doe", 22),
-                (3, "Joe Bloggs", 23),
-            ],
-            ["id", "name", "age"],
-        )
-        df.show()
-
-        return df.toPandas()
-
-    # [END task_pyspark]
-
-    @task
-    def print_df(df: pd.DataFrame):
-        print(df)
-
-    df = spark_task()
-    print_df(df)
-
-
-# work around pre-commit
-dag = example_pyspark()  # type: ignore
-
-
-from tests.system.utils import get_test_run  # noqa: E402
-
-# Needed to run the example DAG with pytest (see: tests/system/README.md#run_via_pytest)
-test_run = get_test_run(dag)
+load_upload_data
