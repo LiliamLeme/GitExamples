@@ -12,8 +12,8 @@ with  DAG(dag_id='Generic_Transfer_Operator',
                         task_id='load_upload_data' ,
                         sql="select * from datbricksOnelake.dbo.FactInternetSales_Consold",
                         destination_table ="dbo.FactInternetSales_Consold"  ,
-                        source_conn_id="GenericLAkehouse"  ,
-                        destination_conn_id="GenericLAkehouse" ,
+                        source_conn_id="sqllitle_FabricWH"  ,
+                        destination_conn_id="sqllitle_FabricWH" ,
                         dag=dag
 
                     )
