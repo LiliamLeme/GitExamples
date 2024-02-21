@@ -12,7 +12,7 @@ with  DAG(dag_id='Generic_Transfer_Operator',
         load_upload_data=GenericTransfer(
                         task_id='load_upload_data' ,
                         sql=r"""        select* from sys.tables;        """,
-                        source_conn_id="sqllitle_FabricWH"        
+                        source_conn_id="sqllitle_FabricWH"    ,
 
                     )
 
