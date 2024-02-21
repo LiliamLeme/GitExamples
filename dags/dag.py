@@ -1,5 +1,6 @@
 from airflow.operators.python import PythonOperator
 from airflow.operators.generic_transfer import GenericTransfer
+from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
 from datetime import datetime, timedelta
 from airflow import DAG
 
