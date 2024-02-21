@@ -10,8 +10,8 @@ with  DAG(dag_id='Generic_Transfer_Operator',
 
         load_upload_data=GenericTransfer(
                         task_id='load_upload_data' ,
-                        sql="select * from datbricksOnelake.dbo.FactInternetSales_Consold",
-                        destination_table ="datbricksOnelake.dbo.FactInternetSales_Consold"  ,
+                        sql="select * from FactInternetSales_Consold",
+                        destination_table ="FactInternetSales_Consold"  ,
                         source_conn_id="sqllitle_FabricWH"  ,
                         destination_conn_id="sqllitle_FabricWH" ,
                         dag=dag
