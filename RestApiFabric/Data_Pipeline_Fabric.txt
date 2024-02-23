@@ -1,0 +1,133 @@
+# Define the URL
+$url = "https://api.fabric.microsoft.com/v1/workspaces"
+
+
+$jsonPayload = @{
+    "displayName"= "lemedemo_test_2"
+    "capacityId" = "09AF2CCF-5F49-4B49-AE97-3B1C45AB7662"
+ 
+}
+
+
+
+$accessToken = "ey"
+
+#####Create Workspace
+
+# Invoke the POST request with token authentication
+$response = Invoke-RestMethod -Method Post -Uri $url -ContentType "application/json" -Headers @{ "Authorization" = "Bearer $accessToken" } -Body ($jsonPayload | ConvertTo-Json)
+
+# Output the response
+$response
+
+
+$workspaceId = $response.id
+
+
+
+# Output the extracted id
+Write-Host "Workspaceid: $workspaceId"
+
+
+
+#####ADD Permissions
+## Check workspace
+#$principal_id = "e6e71005-d0fb-4ffe-8710-e352c362fd16"
+
+
+## Construct the URL for roleAssignments endpoint within the workspace
+#$roleURL = "$url/$workspaceId/roleAssignments"
+
+#Write-Host "URL to be added the role : $roleURL "
+
+
+## Define the JSON payload for the POST request
+#$permissionsPayload = @{
+ #   "principal" = @{
+  #      "id" = $principal_id
+   #     "type" = "User"
+    #}
+    #"role" = "admin"
+#}
+
+
+#$checkResponse = Invoke-RestMethod -Method Post -Uri $roleURL -ContentType "application/json" -Headers @{ "Authorization" = #"Bearer $accessToken" } -Body ($permissionsPayload | ConvertTo-Json)
+
+
+
+
+## Output the check response
+#$checkResponse
+
+
+#####LAKEHOUSE
+
+# Construct the URL for role assignments endpoint within the workspace
+$LHURL = "$url/$workspaceId/items"
+
+Write-Host "URL for the Lakehouse : $LHURL "
+
+
+$LHPayload = @{
+    "displayName"= "LH_test"
+    "type" = "Lakehouse"
+ 
+}
+
+
+$LHResponse = Invoke-RestMethod -Method Post -Uri $LHURL -ContentType "application/json" -Headers @{ "Authorization" = "Bearer $accessToken" } -Body ($LHPayload | ConvertTo-Json)
+
+# Output the check response
+$LHResponse 
+
+$LH_ID= $response.id
+
+
+Write-Host "Lakehouse Id : $LH_ID"
+
+
+#####Notebook
+
+
+
+# Construct the URL for role assignments endpoint within the workspace
+$NBURL = "$url/$workspaceId/items"
+
+Write-Host "URL for the Notebook: $NBURL "
+
+
+$NBPayload = @{
+    "displayName"= "NB_test"
+    "type" = "Notebook"
+ 
+}
+
+
+$NBresponse = Invoke-RestMethod -Method Post -Uri $NBURL -ContentType "application/json" -Headers @{ "Authorization" = "Bearer $accessToken" } -Body ($NBPayload | ConvertTo-Json)
+
+# Output the check response
+$NBresponse 
+
+
+
+#####DataPipe
+
+
+
+# Construct the URL for role assignments endpoint within the workspace
+$pURL = "$url/$workspaceId/items"
+
+Write-Host "URL  DataPipeline: $pURL "
+
+
+$pPayload = @{
+    "displayName"= "Dp_test"
+    "type" = "DataPipeline"
+ 
+}
+
+
+$presponse = Invoke-RestMethod -Method Post -Uri $pURL -ContentType "application/json" -Headers @{ "Authorization" = "Bearer $accessToken" } -Body ($pPayload | ConvertTo-Json)
+
+# Output the check response
+$pBresp
