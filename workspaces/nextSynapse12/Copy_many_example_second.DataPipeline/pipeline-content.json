@@ -1,0 +1,75 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "BinarySource",
+            "storeSettings": {
+              "type": "AzureBlobFSReadSettings",
+              "recursive": true,
+              "wildcardFileName": "*"
+            },
+            "formatSettings": {
+              "type": "BinaryReadSettings"
+            },
+            "datasetSettings": {
+              "annotations": [],
+              "type": "Binary",
+              "typeProperties": {
+                "location": {
+                  "type": "AzureBlobFSLocation",
+                  "folderPath": "sqlserverlessanalitics/FactInternetSales_NONPart",
+                  "fileSystem": "filesystemdatalake"
+                }
+              },
+              "externalReferences": {
+                "connection": "0c63f457-9bff-47a0-8687-0b2702e841db"
+              }
+            }
+          },
+          "sink": {
+            "type": "BinarySink",
+            "storeSettings": {
+              "type": "LakehouseWriteSettings"
+            },
+            "datasetSettings": {
+              "annotations": [],
+              "linkedService": {
+                "name": "SQLDW",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "workspaceId": "9fee2690-4084-4127-9ba5-0ca1b1180451",
+                    "artifactId": "67f8983e-c811-4672-9b76-77704bf6075a",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "type": "Binary",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "factinternetsales"
+                }
+              }
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Copy_manyfiles",
+        "dependsOn": []
+      }
+    ],
+    "annotations": []
+  }
+}
