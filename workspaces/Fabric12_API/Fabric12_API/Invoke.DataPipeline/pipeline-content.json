@@ -1,0 +1,40 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "ExecutePipeline",
+        "typeProperties": {
+          "pipeline": {
+            "referenceName": "a956f3c4-9854-4af7-b60e-85e1383b23e7",
+            "type": "PipelineReference"
+          },
+          "parameters": {},
+          "waitOnCompletion": true
+        },
+        "name": "Invoke pipeline1",
+        "dependsOn": []
+      },
+      {
+        "type": "ExecutePipeline",
+        "typeProperties": {
+          "pipeline": {
+            "referenceName": "9cb0a5d3-0838-4a50-8fbe-2c4b0f47756f",
+            "type": "PipelineReference"
+          },
+          "parameters": {},
+          "waitOnCompletion": true
+        },
+        "name": "Invoke pipeline1_copy1",
+        "dependsOn": [
+          {
+            "activity": "Invoke pipeline1",
+            "dependencyConditions": [
+              "Completed"
+            ]
+          }
+        ]
+      }
+    ],
+    "annotations": []
+  }
+}
