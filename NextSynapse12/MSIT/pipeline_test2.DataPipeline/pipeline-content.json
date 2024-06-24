@@ -1,0 +1,241 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "IfCondition",
+        "typeProperties": {
+          "expression": {
+            "value": "@equals(pipeline().parameters.anything, 'S')",
+            "type": "Expression"
+          },
+          "ifTrueActivities": [],
+          "ifFalseActivities": []
+        },
+        "name": "If Condition1",
+        "dependsOn": []
+      },
+      {
+        "type": "Lookup",
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource"
+          },
+          "datasetSettings": {
+            "type": "LakehouseTable",
+            "typeProperties": {
+              "table": {
+                "value": "@variables('table_name')",
+                "type": "Expression"
+              }
+            },
+            "schema": [],
+            "linkedService": {
+              "properties": {
+                "type": "Lakehouse",
+                "typeProperties": {
+                  "artifactId": "67f8983e-c811-4672-9b76-77704bf6075a",
+                  "workspaceId": "9fee2690-4084-4127-9ba5-0ca1b1180451",
+                  "rootFolder": "Tables"
+                },
+                "annotations": []
+              },
+              "name": "SQLDW"
+            },
+            "annotations": []
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Lookup1",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": []
+      },
+      {
+        "type": "Lookup",
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "storeSettings": {
+              "type": "LakehouseReadSettings",
+              "recursive": true,
+              "enablePartitionDiscovery": false
+            },
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings"
+            }
+          },
+          "datasetSettings": {
+            "type": "DelimitedText",
+            "typeProperties": {
+              "location": {
+                "type": "LakehouseLocation",
+                "folderPath": "Files",
+                "fileName": {
+                  "value": "@variables('anyone_workspace')",
+                  "type": "Expression"
+                }
+              },
+              "columnDelimiter": ",",
+              "quoteChar": "\"",
+              "escapeChar": "\\",
+              "firstRowAsHeader": true
+            },
+            "schema": [],
+            "linkedService": {
+              "properties": {
+                "type": "Lakehouse",
+                "typeProperties": {
+                  "artifactId": "b20305d5-7eb4-44b4-8584-2caa5281c443",
+                  "workspaceId": "00000000-0000-0000-0000-000000000000",
+                  "rootFolder": "Files"
+                },
+                "annotations": []
+              },
+              "name": "SQLDW"
+            },
+            "annotations": []
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Lookup1_copy1",
+        "dependsOn": [
+          {
+            "activity": "If Condition1",
+            "dependencyConditions": [
+              "Completed"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Switch",
+        "typeProperties": {
+          "on": {
+            "value": "@string(rand(0,1))",
+            "type": "Expression"
+          },
+          "cases": [
+            {
+              "value": "case 1",
+              "activities": [
+                {
+                  "type": "ExecutePipeline",
+                  "typeProperties": {
+                    "pipeline": {
+                      "referenceName": "55f0d723-dc3c-465e-83a7-093fa9b049b4",
+                      "type": "PipelineReference"
+                    },
+                    "parameters": {},
+                    "waitOnCompletion": true
+                  },
+                  "name": "Invoke pipeline1",
+                  "dependsOn": []
+                }
+              ]
+            },
+            {
+              "value": "Case2",
+              "activities": [
+                {
+                  "type": "GetMetadata",
+                  "typeProperties": {
+                    "datasetSettings": {
+                      "type": "LakehouseTable",
+                      "typeProperties": {
+                        "table": {
+                          "value": "@variables('table_name')",
+                          "type": "Expression"
+                        }
+                      },
+                      "schema": [],
+                      "linkedService": {
+                        "properties": {
+                          "type": "Lakehouse",
+                          "typeProperties": {
+                            "artifactId": "@variables('LHID')",
+                            "workspaceId": "9fee2690-4084-4127-9ba5-0ca1b1180451",
+                            "rootFolder": "Tables"
+                          },
+                          "annotations": []
+                        },
+                        "name": "3d1ec716_302d_4a99_af0b_3d73ed3dcbbe"
+                      },
+                      "annotations": []
+                    },
+                    "fieldList": [
+                      "columnCount"
+                    ]
+                  },
+                  "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureInput": false,
+                    "secureOutput": false
+                  },
+                  "name": "Get Metadata1",
+                  "dependsOn": []
+                }
+              ]
+            }
+          ],
+          "defaultActivities": []
+        },
+        "name": "Switch1",
+        "dependsOn": [
+          {
+            "activity": "Lookup1_copy1",
+            "dependencyConditions": [
+              "Completed"
+            ]
+          }
+        ]
+      }
+    ],
+    "parameters": {
+      "anything": {
+        "type": "String",
+        "defaultValue": "S"
+      }
+    },
+    "variables": {
+      "anyone": {
+        "type": "Array"
+      },
+      "anyone_workspace": {
+        "type": "String",
+        "defaultValue": "Log_Genericdivide_2_number.log__20230725_T_0847.txt"
+      },
+      "table_name": {
+        "type": "String",
+        "defaultValue": "ISS_Stream_Fabric"
+      },
+      "LHID": {
+        "type": "String",
+        "defaultValue": "98439939-bcb6-4876-9210-5ade05f2ccee"
+      },
+      "array_any": {
+        "type": "Array",
+        "defaultValue": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    "annotations": []
+  }
+}
