@@ -1,0 +1,42 @@
+{
+  "config": "{\"version\":\"5.57\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU08\",\"version\":\"5.58\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":0,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU08",
+            "path": "BaseThemes/CY24SU08.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"87ee9b305dd53b808094\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"houseprice\"}},\"Property\":\"postcode\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}]",
+      "height": 720.00,
+      "name": "328f49d40b4a58789128",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"fb051b802e33c7100a00\",\"layouts\":[{\"id\":0,\"position\":{\"x\":102.91959406713505,\"y\":37.97033567525371,\"z\":1,\"width\":1177.080405932865,\"height\":682.4668227946917,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"houseprice.postcode\"},{\"queryRef\":\"houseprice.address_1\"},{\"queryRef\":\"houseprice.address_2\"},{\"queryRef\":\"houseprice.city_2\"},{\"queryRef\":\"houseprice.council\"},{\"queryRef\":\"houseprice.city\"},{\"queryRef\":\"houseprice.date_\"},{\"queryRef\":\"houseprice.number_\"},{\"queryRef\":\"houseprice.value_\"},{\"queryRef\":\"houseprice.access_id\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"h\",\"Entity\":\"houseprice\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"postcode\"},\"Name\":\"houseprice.postcode\",\"NativeReferenceName\":\"postcode\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"address_1\"},\"Name\":\"houseprice.address_1\",\"NativeReferenceName\":\"address_1\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"address_2\"},\"Name\":\"houseprice.address_2\",\"NativeReferenceName\":\"address_2\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"city_2\"},\"Name\":\"houseprice.city_2\",\"NativeReferenceName\":\"city_2\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"council\"},\"Name\":\"houseprice.council\",\"NativeReferenceName\":\"council\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"city\"},\"Name\":\"houseprice.city\",\"NativeReferenceName\":\"city\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"date_\"},\"Name\":\"houseprice.date_\",\"NativeReferenceName\":\"date_\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"number_\"},\"Name\":\"houseprice.number_\",\"NativeReferenceName\":\"number_\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"value_\"},\"Name\":\"houseprice.value_\",\"NativeReferenceName\":\"value_\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"access_id\"},\"Name\":\"houseprice.access_id\",\"NativeReferenceName\":\"access_id\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 682.47,
+          "width": 1177.08,
+          "x": 102.92,
+          "y": 37.97,
+          "z": 1.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

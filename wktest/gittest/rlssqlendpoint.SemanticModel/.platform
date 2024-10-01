@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "rlssqlendpoint"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "4c721ae5-b218-4f88-8c53-16b7cfc057db"
+  }
+}

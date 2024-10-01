@@ -1,0 +1,51 @@
+{
+  "config": "{\"version\":\"5.57\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU08\",\"version\":\"5.58\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU08",
+            "path": "BaseThemes/CY24SU08.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "a74310ca500cd0d9adbe",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"bdc9a9794bb2600d5637\",\"layouts\":[{\"id\":0,\"position\":{\"x\":770.3950103950103,\"y\":22.619542619542617,\"z\":1,\"width\":500.29106029106026,\"height\":581.4553014553014,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(ppukversion._c1)\"}],\"Category\":[{\"queryRef\":\"ppukversion._c12\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"ppukversion\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"_c1\"}},\"Function\":0},\"Name\":\"Sum(ppukversion._c1)\",\"NativeReferenceName\":\"Sum of _c1\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"_c12\"},\"Name\":\"ppukversion._c12\",\"NativeReferenceName\":\"_c12\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"_c1\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 581.46,
+          "width": 500.29,
+          "x": 770.40,
+          "y": 22.62,
+          "z": 1.00
+        },
+        {
+          "config": "{\"name\":\"c4a69a8a595090347583\",\"layouts\":[{\"id\":0,\"position\":{\"x\":10.644490644490643,\"y\":0,\"z\":0,\"width\":690.5613305613306,\"height\":604.074844074844,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"pieChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(ppukversion._c1)\"}],\"Category\":[{\"queryRef\":\"ppukversion._c10\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"ppukversion\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"_c1\"}},\"Function\":0},\"Name\":\"Sum(ppukversion._c1)\",\"NativeReferenceName\":\"Sum of _c1\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"_c10\"},\"Name\":\"ppukversion._c10\",\"NativeReferenceName\":\"_c10\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"_c1\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 604.07,
+          "width": 690.56,
+          "x": 10.64,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

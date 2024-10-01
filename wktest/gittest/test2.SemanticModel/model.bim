@@ -1,0 +1,335 @@
+{
+  "compatibilityLevel": 1604,
+  "model": {
+    "annotations": [
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.134.7433.1 (Main)"
+      },
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"DatabaseQuery\"]"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"WebModelingEdit\"]"
+      }
+    ],
+    "collation": "Latin1_General_100_BIN2_UTF8",
+    "culture": "en-US",
+    "cultures": [
+      {
+        "name": "en-US",
+        "linguisticMetadata": {
+          "content": {
+            "Language": "en-US",
+            "Version": "1.0.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "expressions": [
+      {
+        "name": "DatabaseQuery",
+        "annotations": [
+          {
+            "name": "PBI_IncludeFutureArtifacts",
+            "value": "False"
+          }
+        ],
+        "expression": [
+          "let",
+          "    database = Sql.Database(\"TM6IMPBBEI3EFCGDG77J4HIG7A-OGA62RKY2ADURODIILA2YPJRTE.datawarehouse.fabric.microsoft.com\", \"b1696527-24ab-4126-9dc4-7c018d516d65\")",
+          "in",
+          "    database"
+        ],
+        "kind": "m",
+        "lineageTag": "b1bea9c9-0c90-4f42-8654-31230cad31a5"
+      }
+    ],
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "ppukversion",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "_c0",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "c5bdda2e-d519-4c98-afac-2903814327b8",
+            "sourceColumn": "_c0",
+            "sourceLineageTag": "_c0",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "_c1",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isCustom\":true}"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "77a04535-315c-433e-a8b6-b1e26037e778",
+            "sourceColumn": "_c1",
+            "sourceLineageTag": "_c1",
+            "sourceProviderType": "int",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "_c2",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "abe07f29-617e-4c59-a26e-ec69e119784e",
+            "sourceColumn": "_c2",
+            "sourceLineageTag": "_c2",
+            "sourceProviderType": "datetime2",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "_c3",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "70209a6a-c08a-4c31-88ac-96e640942282",
+            "sourceColumn": "_c3",
+            "sourceLineageTag": "_c3",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "_c4",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f2583fc4-6cb1-48a3-aff4-efbd5d905c6b",
+            "sourceColumn": "_c4",
+            "sourceLineageTag": "_c4",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "_c5",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "011a8e07-50b6-4c88-915b-3e9e7010ef4d",
+            "sourceColumn": "_c5",
+            "sourceLineageTag": "_c5",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "_c6",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8a3df6d9-35e8-4816-946b-6480983f36a6",
+            "sourceColumn": "_c6",
+            "sourceLineageTag": "_c6",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "_c7",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "3f538dad-ed93-4831-92ee-fca9eb23961e",
+            "sourceColumn": "_c7",
+            "sourceLineageTag": "_c7",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "_c8",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "fcf82c42-e4de-473e-aad8-19c1d16a014d",
+            "sourceColumn": "_c8",
+            "sourceLineageTag": "_c8",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "_c9",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "ddaa2fe2-31ee-41e8-b41d-2fe982429699",
+            "sourceColumn": "_c9",
+            "sourceLineageTag": "_c9",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "_c10",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a0baeb40-3dfa-4eab-840f-a35b138f4972",
+            "sourceColumn": "_c10",
+            "sourceLineageTag": "_c10",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "_c11",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "9b5bb075-ffc4-4fce-ae77-b5a339cc7283",
+            "sourceColumn": "_c11",
+            "sourceLineageTag": "_c11",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "_c12",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "870223b4-7d92-4123-bdf8-9086dec80e75",
+            "sourceColumn": "_c12",
+            "sourceLineageTag": "_c12",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "_c13",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "e5c0148b-0688-45c7-8337-86862ef242b3",
+            "sourceColumn": "_c13",
+            "sourceLineageTag": "_c13",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "_c14",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "3c1eb60b-0491-4a6c-acc9-1fa77a755c68",
+            "sourceColumn": "_c14",
+            "sourceLineageTag": "_c14",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "_c15",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a8c12435-c66a-4319-ba05-ed8fe6942125",
+            "sourceColumn": "_c15",
+            "sourceLineageTag": "_c15",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "58105ac4-0d86-461b-8264-fabba3d9e894",
+        "partitions": [
+          {
+            "name": "ppukversion",
+            "mode": "directLake",
+            "source": {
+              "entityName": "ppukversion",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo",
+              "type": "entity"
+            }
+          }
+        ],
+        "sourceLineageTag": "[dbo].[ppukversion]"
+      }
+    ]
+  }
+}

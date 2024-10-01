@@ -1,0 +1,237 @@
+{
+  "compatibilityLevel": 1604,
+  "model": {
+    "annotations": [
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.134.7413.3 (Main)"
+      },
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"DatabaseQuery\"]"
+      }
+    ],
+    "collation": "Latin1_General_100_BIN2_UTF8",
+    "culture": "en-US",
+    "cultures": [
+      {
+        "name": "en-US",
+        "linguisticMetadata": {
+          "content": {
+            "Language": "en-US",
+            "Version": "1.0.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "expressions": [
+      {
+        "name": "DatabaseQuery",
+        "annotations": [
+          {
+            "name": "PBI_IncludeFutureArtifacts",
+            "value": "False"
+          }
+        ],
+        "expression": [
+          "let",
+          "    database = Sql.Database(\"TM6IMPBBEI3EFCGDG77J4HIG7A-OGA62RKY2ADURODIILA2YPJRTE.datawarehouse.fabric.microsoft.com\", \"b1696527-24ab-4126-9dc4-7c018d516d65\")",
+          "in",
+          "    database"
+        ],
+        "kind": "m",
+        "lineageTag": "a7540641-31d3-4078-8ac6-d740c693a79e"
+      }
+    ],
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "houseprice",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "value_",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "1dd8eb9c-b74a-4718-a4e9-1455e2611672",
+            "sourceColumn": "value_",
+            "sourceLineageTag": "value_",
+            "sourceProviderType": "int",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "date_",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "9355b724-69e6-479d-aee0-468c9f6b6763",
+            "sourceColumn": "date_",
+            "sourceLineageTag": "date_",
+            "sourceProviderType": "datetime2",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "postcode",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7af27367-9c55-4f19-8c56-6dfebae5f74b",
+            "sourceColumn": "postcode",
+            "sourceLineageTag": "postcode",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "address_1",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7d4708be-2d32-4e92-ba4d-245c723cb7be",
+            "sourceColumn": "address_1",
+            "sourceLineageTag": "address_1",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "number_",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "35fe661e-85df-4632-94cc-f8f268d5f978",
+            "sourceColumn": "number_",
+            "sourceLineageTag": "number_",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "address_2",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "e7d9dd62-fb35-4f88-8913-8025aa45f060",
+            "sourceColumn": "address_2",
+            "sourceLineageTag": "address_2",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "city",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "3bd61019-7ba0-4978-b544-079e39fcb6d5",
+            "sourceColumn": "city",
+            "sourceLineageTag": "city",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "council",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "da2b7a77-a8e5-467a-9051-17433fd1ad08",
+            "sourceColumn": "council",
+            "sourceLineageTag": "council",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "city_2",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "07429c24-8db3-4e76-a025-808ca75ab295",
+            "sourceColumn": "city_2",
+            "sourceLineageTag": "city_2",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "access_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a9b33ffb-1291-40ee-9019-da686613afba",
+            "sourceColumn": "access_id",
+            "sourceLineageTag": "access_id",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "376c9c8a-cb13-42ac-be10-2aa0a1bee253",
+        "partitions": [
+          {
+            "name": "houseprice",
+            "mode": "directLake",
+            "source": {
+              "entityName": "houseprice",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo",
+              "type": "entity"
+            }
+          }
+        ],
+        "sourceLineageTag": "[dbo].[houseprice]"
+      }
+    ]
+  }
+}

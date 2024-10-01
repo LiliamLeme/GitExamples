@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "report_council_values"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "b0c6832a-8269-4cc2-bf67-fc016d214793"
+  }
+}
