@@ -1,0 +1,46 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "8562e344-ac2f-4132-a8d2-04a106947e63",
+          "workspaceId": "6ddb8164-0f2f-4dad-bbab-81f0072b070b"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Pipeline_execution WK_B",
+        "dependsOn": [
+          {
+            "activity": "PIpeline execution WK_A",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "7068a753-938b-49a4-81ae-cc45521d925d",
+          "workspaceId": "00000000-0000-0000-0000-000000000000"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "PIpeline execution WK_A",
+        "dependsOn": []
+      }
+    ],
+    "annotations": []
+  }
+}
