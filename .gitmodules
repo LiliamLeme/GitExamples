@@ -1,0 +1,3 @@
+[submodule "submoduletest/testli"]
+	path = submoduletest/testli
+	url = https://github.com/LiliamLeme/testli.git
