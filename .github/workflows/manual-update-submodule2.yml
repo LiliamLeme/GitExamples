@@ -1,0 +1,27 @@
+name: Manual Submodule Updatev2 (branch)
+
+on:
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  update-submodule:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main repo with submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update submodule 'testli' to latest on 'snap' branch
+        run: |
+          cd submoduletest/testli
+          git checkout main
+          git pull origin main
+          cd ../..
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add submoduletest/testli
+          git commit -m "Manually triggered: update submodule 'testli' to latest on 'snap' branch" || echo "No changes to commit"
+          git push origin HEAD:main
