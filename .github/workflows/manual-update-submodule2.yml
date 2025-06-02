@@ -3,6 +3,9 @@ name: Manual Submodule Updatev2 (branch)
 on:
   workflow_dispatch:  # Manual trigger
 
+permissions:
+  contents: write
+
 jobs:
   update-submodule:
     runs-on: ubuntu-latest
