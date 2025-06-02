@@ -2,6 +2,8 @@ name: Manual Submodule Update
 
 on:
   workflow_dispatch:  # Enables manual trigger
+permissions:
+  contents: write
 
 jobs:
   update-submodule:
