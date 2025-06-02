@@ -29,6 +29,5 @@ jobs:
           git add submoduletest/testli
           git commit -m "Manually triggered: update submodule 'testli' to latest on 'snap' branch" || echo "No changes to commit"
           git remote set-url origin https://x-access-token:${{ secrets.TESTALL }}@github.com/LiliamLeme/GitExamples.git
-          run: git remote -v
-          git push origin HEAD:my-temp-update-branch
+          git push origin HEAD:main
 
