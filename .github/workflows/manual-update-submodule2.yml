@@ -27,4 +27,5 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add submoduletest/testli
           git commit -m "Manually triggered: update submodule 'testli' to latest on 'snap' branch" || echo "No changes to commit"
+          git remote set-url origin https://LiliamLeme-access-token:${{ secrets.TESTLI_TOKEN }}@github.com/LiliamLeme/GitExamples.git
           git push origin HEAD:main
