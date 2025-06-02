@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.TESTLI_TOKEN }}
 
       - name: Update submodule 'testli' to latest on 'snap' branch
         run: |
