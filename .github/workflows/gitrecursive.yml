@@ -1,0 +1,31 @@
+name: Manual Submodule recursive
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write  # Required to push changes
+
+jobs:
+  update-submodule:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main repo with submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          token: ${{ secrets.TESTALL }}
+
+      - name: Pull & update submodules recursively
+        run: |
+          git submodule update --init --recursive
+          git submodule update --remote --recursive
+
+      - name: Commit and push updated submodule reference
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add a/submodule/c  # Adjust path as needed
+          git commit -m "Update submodule to latest commit on 'snap' branch" || echo "No changes to commit"
+          git push origin HEAD:main
