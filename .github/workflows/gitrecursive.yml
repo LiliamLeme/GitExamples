@@ -26,6 +26,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add cd submoduletest/testli  # Adjust path as needed
+          git add submoduletest/testli  # Adjust path as needed
           git commit -m "Update submodule to latest commit on 'snap' branch" || echo "No changes to commit"
           git push origin HEAD:main
