@@ -20,7 +20,7 @@ jobs:
       - name: Pull & update submodules recursively
         run: |
           git submodule update --init --recursive
-          git submodule update --remote --recursive
+          git submodule foreach 'git fetch origin main && git checkout main && git pull origin main'
 
       - name: Commit and push updated submodule reference
         run: |
